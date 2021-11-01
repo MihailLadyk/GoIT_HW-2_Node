@@ -1,5 +1,5 @@
 {
-  "name": "FE_React_Advanced_1",
+  "name": "GOIT_HW-2_NODE",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -9,19 +9,20 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/olehhapuk/fe_react_advanced_1.git"
+    "url": "git+https://github.com/olehhapuk/GOIT_HW-2_NODE.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/olehhapuk/fe_react_advanced_1/issues"
+    "url": "https://github.com/olehhapuk/GOIT_HW-2_NODE/issues"
   },
-  "homepage": "https://github.com/olehhapuk/fe_react_advanced_1#readme",
+  "homepage": "https://github.com/olehhapuk/GOIT_HW-2_NODE#readme",
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
+    "mongoose": "^6.0.12",
     "nanoid": "^3.1.26",
     "volleyball": "^1.5.1",
     "yup": "^0.32.9"
