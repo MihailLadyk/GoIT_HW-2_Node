@@ -28,7 +28,7 @@
     "yup": "^0.32.9"
   },
   "devDependencies": {
-    "nodemon": "^2.0.12"
+    "nodemon": "^2.0.14"
   },
   "nodemonConfig": {
     "ignore": [

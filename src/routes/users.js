@@ -64,27 +64,47 @@ router.put("/:userId", schemaValidate(updateUserSchema), async (req, res) => {
   }
 });
 
-// router.patch("/:userId/favorite", async (req, res, next) => {
-//   try {
-//     const user = await Contact.findById(req.params.userId);
-//     if (req.body.favorite !== undefined) {
-//       return res.status(400), json({ message: "123" });
-//     }
-//     const Updateduser = await Contact.findByIdAndUpdate(
-//       req.params.userId,
+router.patch("/:userId/favorite", async (req, res, next) => {
+  try {
+    const { userId } = req.params;
+    const user = await Contact.findById(userId);
 
-//       {
-//         new: true,
-//       },
-//       {
-//         favorite: req.body.favorite,
-//       }
-//     );
-//     res.json(Updateduser);
-//   } catch (error) {
-//     res.status(500).send(error);
-//   }
-// });
+    if (
+      req.body.favorite === undefined ||
+      typeof req.body.favorite !== "boolean"
+    ) {
+      return res.status(400).json({ message: "missing field favorite" });
+    }
+
+    if (user) {
+      const updatedUser = await Contact.findByIdAndUpdate(
+        userId,
+        {
+          favorite: req.body.favorite,
+        },
+        {
+          new: true,
+        }
+      );
+
+      return res.json({
+        status: "success",
+        code: 200,
+        data: {
+          updatedUser,
+        },
+      });
+    } else {
+      return res.json({
+        status: "error",
+        code: 404,
+        data: "Not found",
+      });
+    }
+  } catch (error) {
+    next(error);
+  }
+});
 
 /// find all
 router.get("/", async (req, res) => {
